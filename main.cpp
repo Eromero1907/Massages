@@ -18,41 +18,27 @@ Nodo* spam[MAX_CLIENTES];
 
 int horaMomento(int actual){
     int turno = 0;
-    if(actual >= 800 && actual < 830){
-        turno = 0;
-    } else if(actual >= 830 && actual < 900) {
-        turno = 1;
-    } else if(actual >= 900 && actual < 930){
-        turno = 2;
-    } else if(actual >= 930 && actual < 1000){
-        turno = 3;
-    } else if(actual >= 1000 && actual < 1030){
-        turno = 4;
-    } else if(actual >= 1030 && actual < 1100){
-        turno = 5;
-    } else if(actual >= 1100 && actual < 1130){
-        turno = 6;
-    } else if(actual >= 1130 && actual < 1200){
-        turno = 7;
-    } else if(actual >= 1200 && actual < 1230){
-        turno = 8;
-    } else if(actual >= 1230 && actual < 1300){
-        turno = 9;
-    } else if(actual >= 1300 && actual < 1330){
-        turno = 10;
-    } else if(actual >= 1330 && actual < 1400){
-        turno = 11;
-    } else if(actual >= 1400 && actual < 1430){
-        turno = 12;
-    } else if(actual >= 1430 && actual < 1500){
-        turno = 13;
-    } else if(actual >= 1500 && actual < 1530){
-        turno = 14;
-    } else if(actual >= 1530 && actual < 1600){
-        turno = 15;
-    } else if(actual >= 1600 && actual < 1630){
-        turno = 16;
-    } 
+    int inicio = 800;
+    int final = 830;
+    for(int i = 0; i < 17; i+=2){
+        if(actual >= inicio && actual < final){
+            turno = i;
+            break;
+        }
+        inicio += 100;
+        final += 100;
+    }
+    int comienzo = 830;
+    int finalizar = 900;
+    for(int i = 1; i < 17; i+=2){
+        if(actual >= comienzo && actual < finalizar){
+            turno = i;
+            break;
+        }
+        comienzo += 100;
+        finalizar += 100;
+    }
+
     return turno;
 }
 
